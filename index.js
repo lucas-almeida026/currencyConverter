@@ -17,6 +17,7 @@ const calcDiff = (currencys, target) => {
     '3': '2',
     '4': '3'
   }
+  
   if(target){
     if(target.id == 'input1'){
       console.log()
