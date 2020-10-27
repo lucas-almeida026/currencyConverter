@@ -19,14 +19,23 @@ const calcDiff = (currencys, target) => {
   }
   
   if(target){
-    if(target.id == 'input1'){
-      console.log()
-      return (((parseFloat(currencys[dicCurrency[select1.selectedIndex]].bid) * target.value) * parseFloat(currencys[dicCurrency[select2.selectedIndex]].bid)) / parseFloat(currencys[dicCurrency[select1.selectedIndex]].bid))
-      .toFixed(2)
+    if(select1.selectedIndex == 2 || select2.selectedIndex == 2){
+      if(target.id == 'input1'){
+        return (parseFloat(currencys[dicCurrency[select2.selectedIndex]].bid) * input1.value)
+        .toFixed(2)
+      }else{
+        return ((parseFloat(currencys[dicCurrency[select1.selectedIndex]].bid) / parseFloat(currencys[dicCurrency[select2.selectedIndex]].bid)) * input2.value)
+        .toFixed(2)
+      }
     }else{
-      return (parseFloat(currencys[dicCurrency[select2.selectedIndex]].bid) / (parseFloat(currencys[dicCurrency[select1.selectedIndex]].bid) * target.value))
-      .toFixed(2)
-    }    
+      if(target.id == 'input1'){
+        return ((parseFloat(currencys[dicCurrency[select1.selectedIndex]].bid) * target.value) / parseFloat(currencys[dicCurrency[select2.selectedIndex]].bid))
+        .toFixed(2)
+      }else{
+        return (parseFloat(currencys[dicCurrency[select2.selectedIndex]].bid) / (parseFloat(currencys[dicCurrency[select1.selectedIndex]].bid) * target.value))
+        .toFixed(2)
+      }
+    }        
   }else{
     return ((parseFloat(currencys[dicCurrency[select1.selectedIndex]].bid) * input1.value) * parseFloat(currencys[dicCurrency[select2.selectedIndex]].bid)).toFixed(2)
   }
